@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+	  
+		<head>
+				<meta charset="UTF-8"/>
+				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+				 
+				  <!-- 
+				 <link  th:href="@{/webjars/bootstrap/4.1.3/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/> 
+				-->
+				 <link  th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/> 
+				 <link  th:href="@{/css/login.css}" type="text/css" rel="stylesheet"/> 		
+				<title>Login</title>
+				
+			
+				
+
+		</head>
+		
+		<body class="text-left">
+					
+		    <form th:action="@{/login}" method="post" class="form-signin">
+		    
+				  <div class="text-center"> 
+				  
+				  		<h1 class="h3 mb-3 font-weight-normal" style="color: #f5f5f5">Login</h1>
+				  
+				   </div>
+				  
+				  
+				  <label for="login" >Login</label>
+				  
+				  <input name="username" value="" type="text" id="login" class="form-control" placeholder="login" required autofocus>
+				  <br>
+				  <label for="senha" >Senha</label>
+				  
+				  <input name="password" value="" type="password" id="senha" class="form-control" placeholder="senha" required>
+				
+				<div class="text-center">
+				
+				  <div class="checkbox mb-3">
+				  
+				    <label>
+				      <input type="checkbox" value="remember-me"> lembrar login
+				    </label>
+				    
+				  </div>
+				  
+				  <button class="btn btn-lg btn-success btn-block" type="submit" >Entrar</button>
+				 
+				  
+				  <p class="mt-5 mb-3 text-muted">ISN Development &copy; 2020</p>
+				  
+				  </div>
+				  
+			</form>
+		</body>
+		
+			 <!-- 
+				<script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+				<script type="text/javascript" th:src="@{/webjars/bootstrap/4.1.3/js/bootstrap.bundle.min.js}"></script>
+			-->
+
+</html>
