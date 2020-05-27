@@ -28,7 +28,7 @@ public class Usuario implements UserDetails{
 
 	public void setLogin(String login) {
 		
-		System.out.println("setou login");
+
 		this.login = login;
 	}
 
@@ -39,7 +39,7 @@ public class Usuario implements UserDetails{
 
 	public void setSenha(String senha) {
 		
-		System.out.println("setou senha");
+
 		this.senha = senha;
 	}
 
@@ -49,7 +49,7 @@ public class Usuario implements UserDetails{
 	}
 
 	public void setNome(String nome) {
-		System.out.println("setou nome");
+		
 		this.nome = nome;
 	}
 
@@ -72,7 +72,7 @@ public class Usuario implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		System.out.println("ENtrou em get username ");
+		
 		// TODO Auto-generated method stub
 		return this.getLogin(); 	
 	}

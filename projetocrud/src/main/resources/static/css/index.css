@@ -1,0 +1,22 @@
+html,
+body{
+	background-color: #000000;
+}
+
+.teste:hover {
+	color: #fff !important;  
+	text-decoration: none;
+}	
+
+.teste{
+	color: rgba(255,255,255,.5) !important;
+	
+}
+
+.testediv{
+	margin-top: 80px;
+	background-color: #fff;
+	height: 800px;
+	width:  100%;
+	
+}
