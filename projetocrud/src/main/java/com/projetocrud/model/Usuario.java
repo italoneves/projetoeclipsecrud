@@ -2,11 +2,20 @@ package com.projetocrud.model;
 
 import java.util.Collection;
 
+
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+
+
+
+//@Column(nullable = true, columnDefinition = "TEXT", length = 10000)
+
 
 @Entity
 public class Usuario implements UserDetails{
@@ -16,6 +25,7 @@ public class Usuario implements UserDetails{
 
 	private String senha;
 	
+	@Column(columnDefinition = "varchar(10)" )
 	private String nome;
 
 	

@@ -23,12 +23,14 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
 		http
 		.authorizeRequests().antMatchers("/css/**","/js/**").permitAll()
 		.anyRequest().authenticated()
-		.and().formLogin().loginPage("/login").permitAll();
+		.and().formLogin().loginPage("/login").permitAll().and().rememberMe();	
 		
 		//Vai ser necessário autenticar para ter acesso
+		//pasta que pode ser acessada
 		//qualquer requisação tem que autenticar antes
 		//autenticaçao
-		//tenho uma propria pagina de login 
+		//tenho uma propria pagina de login e especifico a mesma
+		//relembrar login
 		
 	}
 	

@@ -1,22 +1,26 @@
 html,
 body{
-	background-color: #000000;
+	background-color: #000;
 }
 
-.teste:hover {
-	color: #fff !important;  
+.sair-nome:hover {
+	color: #fff !important;  /** Cor branco quando tiver selecionado **/
 	text-decoration: none;
 }	
 
-.teste{
-	color: rgba(255,255,255,.5) !important;
+.sair-nome{
+	color: rgba(255,255,255,.5) !important; /** Cor transparente antes de selecionar */
 	
 }
 
-.testediv{
+.div-box{  /* Cadastro espaço da parte cima */
+	color: #fff;
 	margin-top: 80px;
-	background-color: #fff;
 	height: 800px;
 	width:  100%;
 	
 }
+.bg-color{
+	background-color: #218838; /** cor do navbar */
+}
+
