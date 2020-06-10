@@ -75,7 +75,6 @@ public class Usuario implements UserDetails{
 	
 	@Override
 	public String getPassword() { 
-		System.out.println("ENtrou em get passwrod ");
 		// TODO Auto-generated method stub
 		return this.getSenha();
 	}

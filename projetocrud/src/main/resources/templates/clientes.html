@@ -5,9 +5,10 @@
 				<meta charset="UTF-8">
 				<title>Clientes</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+				<link  th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
 				<link  th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/> 
 	</head>
-	<body style="background-color: #000000"> 
+	<body style="background-color: #000"> 
 	
 			  <nav class="navbar navbar-expand-lg  navbar-dark fixed-top " style="background-color: #218838">
 
@@ -29,7 +30,7 @@
 			            <a class="nav-link" href="/clientes">Clientes</a>
 			          </li>
 			          <li class="nav-item">
-			            <a class="nav-link" href="#">Novo Cadastro</a>
+			            <a class="nav-link" href="/novocadastro">Novo Cadastro</a>
 			          </li>
 			           <li class="nav-item">
 			            <a class="nav-link" href="#">Lista de espera</a>
@@ -42,7 +43,62 @@
 		    </nav>
 	  				
 	  				
-	  				<h1>ok</h1>
+			<div class="container">
+				<div class="div-box">
+				
+					<div class="form-row">
+						<div class="form-grupo col-md-8">
+						</div>
+						
+						
+						<div class="form-grupo col-md-4">
+						
+						<form th:action="@{/clientes}" method="POST" class="form-inline ">
+							<input name="nome" type="search" class="form-control  mr-sm-2" placeholder="Nome">
+							<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Buscar</button>
+
+						</form>
+						
+						</div>
+					
+					</div>
+					
+					<div class="div-table table-responsive" >
+				
+							<table class="table table-sm table-dark table-hover table-bordered ">
+						
+								<thead>
+								
+									 <tr class="bg-success d-flex">  
+									 	<th class="col-6">Nome</th>
+									 	<th class="col-3">Convênio</th>
+									 	<th class="col-3">Data Nascimento</th>
+									 </tr>
+								</thead>
+								
+								<tbody>
+								
+								 		<tr th:each="Cliente : ${listacliente}" class="d-flex">
+								 		 
+								 		 <td class="col-6" th:text="${Cliente.nome}"></td>
+								 		 <td  class="col-3" th:text="${Cliente.convenio}"></td>
+								 		 <td  class="col-3" th:text="${Cliente.datanasc}"></td>
+
+								 		</tr>
+						
+								
+								
+								</tbody>
+						
+						
+						</table>
+						
+					</div>	
+	 				
+				
+				</div>
+			    
+			</div>
 	  				
 	  				<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
 					<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>

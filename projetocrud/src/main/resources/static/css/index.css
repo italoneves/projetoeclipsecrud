@@ -1,6 +1,7 @@
 html,
 body{
-	background-color: #000;
+	
+	background-color: #000000;
 }
 
 .sair-nome:hover {
@@ -16,11 +17,16 @@ body{
 .div-box{  /* Cadastro espaço da parte cima */
 	color: #fff;
 	margin-top: 80px;
-	height: 800px;
+	height: 100%;
 	width:  100%;
+	
 	
 }
 .bg-color{
 	background-color: #218838; /** cor do navbar */
 }
+.div-table{
+	margin-top: 30px;
+}
+
 

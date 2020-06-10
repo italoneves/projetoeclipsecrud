@@ -2,21 +2,16 @@ package com.projetocrud.model;
 
 
 import java.time.LocalDate;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "clientes")
@@ -28,33 +23,45 @@ public class Cliente{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
+	
 	@Column(unique = true)
+	@CPF
 	private String cpf;
+	
 	@Column(columnDefinition = "varchar(60)")
-	@NotBlank
+	@NotBlank(message = "Digite  um nome")
 	private String nome;
+	
 	@Column(columnDefinition = "varchar(9)")
-	@NotBlank
+	@NotBlank(message = "Digite um cep")
 	private String cep;
+	
 	@Column
-	@NotBlank
+	@javax.validation.constraints.NotEmpty(message = "Digite algo")
 	private String rua;
+	
+	
 	@Column(columnDefinition = "varchar(8)")
 	private String numero; 
 	@Column
 
 	private String sexo;
 	@Column
-	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	//@DateTimeFormat(pattern=“yyyy/MM/dd”)
-	@DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-	private LocalDate datanascimento; 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate datanasc; 
 	
 	@Column(columnDefinition = "varchar(20)")
 	private String convenio;
 	@Column(columnDefinition = "varchar(20)" )
 	private String numerocarteira;
 
+
+	public LocalDate getDatanasc() {
+		return datanasc;
+	}
+	public void setDatanasc(LocalDate datanasc) {
+		this.datanasc = datanasc;
+	}
 	
 	public Long getCodigo() {
 		return codigo;
@@ -97,13 +104,6 @@ public class Cliente{
 	}
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
-	}
-
-	public LocalDate getDatanascimento() {
-		return datanascimento;
-	}
-	public void setDatanascimento(LocalDate datanascimento) {
-		this.datanascimento = datanascimento;
 	}
 	public String getConvenio() {
 		return convenio;
