@@ -1,7 +1,7 @@
 html,
 body{
 	
-	background-color: #000000;
+	background-color: #000 !important;
 }
 
 .sair-nome:hover {
@@ -28,5 +28,37 @@ body{
 .div-table{
 	margin-top: 30px;
 }
+
+.label-n:after{
+	color: #FF0000;
+	content: "  *";
+}
+
+a.link-c:link{
+	
+	text-decoration: none;  /* Tirar sublinhado*/
+}
+
+.link-c:hover{
+	color: #00FF00;
+}
+
+.link-c{
+	color: inherit; /* Mudar cor do link de azul para branco*/
+}
+
+input{
+	color: #000 !important; 
+}
+
+
+
+
+
+
+
+
+
+
 
 

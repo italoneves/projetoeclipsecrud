@@ -2,8 +2,12 @@ package com.projetocrud.model;
 
 
 import java.time.LocalDate;
+import java.util.Scanner;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,12 +28,12 @@ public class Cliente{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long codigo;
 	
-	@Column(unique = true)
-	@CPF
+	@Column(unique = true)                //Informa que é campo unico só pode 1
+	@CPF   //Valida cpf 
 	private String cpf;
 	
 	@Column(columnDefinition = "varchar(60)")
-	@NotBlank(message = "Digite  um nome")
+	@NotBlank(message = "Digite  um nome") //Não aceita nulo, nem em branco, nem vazio com espaço
 	private String nome;
 	
 	@Column(columnDefinition = "varchar(9)")
@@ -43,19 +47,25 @@ public class Cliente{
 	
 	@Column(columnDefinition = "varchar(8)")
 	private String numero; 
-	@Column
-
-	private String sexo;
+	
+	//@Column(columnDefinition = "enum('Masculino','Feminino')")
+	@Enumerated(EnumType.STRING)
+	private Sexo sexo;
+	
 	@Column
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate datanasc; 
 	
 	@Column(columnDefinition = "varchar(20)")
 	private String convenio;
+	
 	@Column(columnDefinition = "varchar(20)" )
 	private String numerocarteira;
 
 
+	
+	
+	
 	public LocalDate getDatanasc() {
 		return datanasc;
 	}
@@ -79,7 +89,9 @@ public class Cliente{
 		return nome;
 	}
 	public void setNome(String nome) {
+
 		this.nome = nome;
+		
 	}
 	public String getCep() {
 		return cep;
@@ -97,13 +109,16 @@ public class Cliente{
 		return numero;
 	}
 	public void setNumero(String numero) {
+
 		this.numero = numero;
 	}
-	public String getSexo() {
+	public Sexo getSexo() {
 		return sexo;
 	}
-	public void setSexo(String sexo) {
+	public void setSexo(Sexo sexo) {
+		
 		this.sexo = sexo;
+	
 	}
 	public String getConvenio() {
 		return convenio;
@@ -119,11 +134,4 @@ public class Cliente{
 	}
 
 	
-	
-	
-	
-
-	
-	
-
 }

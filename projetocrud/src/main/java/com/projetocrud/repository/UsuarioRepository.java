@@ -7,5 +7,7 @@ import com.projetocrud.model.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, String> {
 	
 	Usuario findByLogin(String login);
+	
+	
 
 }

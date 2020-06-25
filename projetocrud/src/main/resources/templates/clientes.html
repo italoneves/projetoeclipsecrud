@@ -8,7 +8,7 @@
 				<link  th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
 				<link  th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/> 
 	</head>
-	<body style="background-color: #000"> 
+	<body > 
 	
 			  <nav class="navbar navbar-expand-lg  navbar-dark fixed-top " style="background-color: #218838">
 
@@ -43,7 +43,7 @@
 		    </nav>
 	  				
 	  				
-			<div class="container">
+			<div class="container" >
 				<div class="div-box">
 				
 					<div class="form-row">
@@ -63,7 +63,7 @@
 					
 					</div>
 					
-					<div class="div-table table-responsive" >
+					<div class="div-table table-responsive-sm" >
 				
 							<table class="table table-sm table-dark table-hover table-bordered ">
 						
@@ -73,18 +73,20 @@
 									 	<th class="col-6">Nome</th>
 									 	<th class="col-3">Convênio</th>
 									 	<th class="col-3">Data Nascimento</th>
+									 
 									 </tr>
 								</thead>
 								
 								<tbody>
 								
-								 		<tr th:each="Cliente : ${listacliente}" class="d-flex">
-								 		 
-								 		 <td class="col-6" th:text="${Cliente.nome}"></td>
-								 		 <td  class="col-3" th:text="${Cliente.convenio}"></td>
-								 		 <td  class="col-3" th:text="${Cliente.datanasc}"></td>
-
-								 		</tr>
+	 		<tr th:each="Cliente :${listacliente}" class="d-flex">
+	 		 
+		 		 <td class="col-6" > <a class="link-c" th:text="${Cliente.nome}"  
+		 		 th:href="${(#mvc.url('IC#detalhesClientes').arg(0,Cliente.codigo)).build()}"> </a>  </td>
+		 		 <td  class="col-3" th:text="${Cliente.convenio}"></td>
+		 		 <td  class="col-3" th:text="${Cliente.datanasc}"></td>
+			
+	 		</tr>
 						
 								
 								

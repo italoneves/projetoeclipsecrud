@@ -11,8 +11,12 @@ public interface ClientesRepository extends JpaRepository<Cliente, Long>{
 	
 	Cliente findByNome(String nome);
 	
-	List<Cliente> findByNomeContaining(String nome);
+	List<Cliente> findByNomeContaining(String nome); //Busca com like % %
 	
-//	@Query("SELECT u.nome FROM clientes u WHERE u.nome LIKE CONCAT('%',:nome,'%')")
-//	List<String> findNomeComLike(@Param("username") String nome);
+	Cliente findByCodigo(Long codigo);
+	
+	
+	
+	//	@Query("SELECT u.nome FROM clientes u WHERE u.nome LIKE CONCAT('%',:nome,'%')")
+	//	List<String> findNomeComLike(@Param("username") String nome);
 }

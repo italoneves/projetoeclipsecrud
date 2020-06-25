@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" 
 	  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
-		<head>
+	<head>
 				<meta charset="UTF-8">
-				<title>Cadastrar Novo</title>
+				<title>Detalhes do cliente</title>
 				<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-					<link  th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/> 
-	 				<link  th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
-	 				<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
-				<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-				<script type="text/javascript" th:src="@{/js/jquery.mask.min.js}"></script>
-	 				
-				<script type="text/javascript" >
-							$(document).ready(function(){
-			
-							  	$("#cep").mask("00000-000")
-							  	$("#cpf").mask("000.000.000-00")
-							  
-							})
+				<link  th:href="@{/css/index.css}" type="text/css" rel="stylesheet"/>
+				<link  th:href="@{/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/> 
 				
-				 </script>
-		</head>
-		<body>
-		    	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-color" >
+				
+	</head>
+	<body >
+	
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-color" >
 				
 			      		<a class="navbar-brand" href="/index">Home</a>
 	
@@ -47,31 +37,25 @@
 						            <a class="nav-link" href="#">Lista de espera</a>
 						          </li>
 						        </ul>		
-						         <form method="post"  th:action="@{/logout}" class="form-inline">   
-							   <button type="submit" class="btn btn-outline-success sair-nome">Sair</button>
-							 
-								 </form>
 						 				         
-						  </div>
+				</div>
 			
+		 </nav>
+	
+			<div class="container">
+			
+				<div class="div-box"  th:object=${cliente} >
 						
-						 
-						 
-			    </nav>
-		    
-			<div class="container" >
-			 	<div class="div-box">
-			 	
-					<form th:action="@{/novocadastro}" method="POST" th:object= ${cliente}>
+						<form th:action="@{/novocadastro}" method="POST"  >
 				 
 						<div class="form-row ">
 							<div class="form-group col-md-8">
 								<label class="label-n">Nome:</label>
-								<input  name="nome" type="text" th:field="*{nome}"  placeholder="Nome" class="form-control" maxlength="60" min="5" required autofocus>
+								<input  name="nome" type="text"  th:field="*{nome}" placeholder="Nome" class="form-control" maxlength="60" min="5" required autofocus>
 							</div>
 								<div class="form-group col-md-4">
 								<label class="label-n" >Cpf:</label>
-								<input name="cpf" type="text"  th:field="*{cpf}"  placeholder="Cpf" class="form-control" maxlength="14" id="cpf">
+								<input name="cpf" type="text"  th:field="*{cpf}" placeholder="Cpf" class="form-control" maxlength="14" id="cpf">
 							</div>
 						</div>
 						
@@ -88,35 +72,32 @@
 							
 							<div class="form-group col-md-2">
 								<label class="label-n">Cep:</label>
-								<input name="cep" type="text"  id="cep" th:field="*{cep}" placeholder="Cep" class="form-control" >
+								<input name="cep" type="text" th:field="*{cep}" id="cep" placeholder="Cep" class="form-control" >
 							</div>
 						</div>
 						
 						
 						<div class="form-row">
 							
-					 			<div class="form-group col">
-					 								 			
-					 				<label>Sexo:</label>
-					 				
-							<select name="sexo" class="form-control" >
+					 		
+					 			<div class=" form-group col">
+					 			
+					 				<select name="sexo" class="form-control" >
 					 			
 					 			 <option selected >Selecione</option>
 					 			 <option 
 					 			 
 					 			 th:each="sexo_e: ${en_sexo}" 
 					 			 th:text="${sexo_e.genero}" 
-					 			 th:value="${sexo_e}" > 
+					 			 th:value="${sexo_e}" 
+					 			 > 
 					 			 
 					 			 </option>
 					 			 
 					 		</select>
 					 			
-					 			</div>
-					 			<div class=" form-group col">
-					 			
 					 			<label>Data Nascimento:</label>
-					 			<input name="datanasc" type="date" th:field="*{datanasc}" placeholder="data nascimento" class="form-control">
+					 			<input name="datanasc" type="date"  th:field="*{datanasc}" placeholder="data nascimento" class="form-control">
 					 			
 					 			</div>
 
@@ -126,12 +107,12 @@
 						
 							<div class="form-group col">
 						   <label>Convênio:</label>
-						   <input name="convenio" type="text" placeholder="Convênio" th:field="*{convenio}" class="form-control" maxlength="15" >
+						   <input name="convenio" type="text"  th:field="*{convenio}" placeholder="Convênio" class="form-control" maxlength="15" >
 						   </div>
 						   <div class="form-group col">
 						   
 					   			<label>N° Carteira:</label>
-					   		     <input name="numerocarteira" type="text" th:field="*{numerocarteira}" placeholder="N° Carteira" class="form-control" maxlength="15" >
+					   		     <input name="numerocarteira" th:field="*{numerocarteira}" type="text" placeholder="N° Carteira" class="form-control" maxlength="15" >
 									
 							</div>
 						</div>
@@ -147,25 +128,23 @@
 							 	   </div>
 					 	   </div>
 						
-						<!-- 
-						<div class="form-group col-md-4" > 
-							<div class="form-check form-check-inline" th:each="sexo:${en_sexo} >
-							
-							  <input class="form-check-input" type="radio" name="sexo" th:value="${sexo}">
-							  
-							  <label class="form-check-label" th:text="${sexo.genero}"></label>
-							  
-							</div>
 						
-						</div>
-						 -->
-						 
 							
 					
 					</form>
+				
+				
 				</div>
-				
+			
 			</div>
-				
-		</body>
+			
+			
+					<script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+					<script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
+	
+	</body>
+	
+	
+	
+	
 </html>
